@@ -169,3 +169,43 @@
     .contact_form_container .contact_form .close_btn:hover {
         color: red;
     }
+    /* action header styles */
+    
+    .action_header {
+        display: flex;
+        margin: 3rem 0px;
+        justify-content: space-between;
+        align-items: center;
+        height: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .action_container hr {
+        margin-bottom: 4rem;
+    }
+    
+    .action_header .search_form {
+        display: flex;
+        align-items: center;
+        width: 40%;
+    }
+    
+    .action_header .search_form input {
+        padding: 0.68rem 1.2em;
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 5px!important;
+        border-bottom-left-radius: 5px !important;
+        outline: none;
+        border-color: #0f2767;
+        border-right: 0;
+    }
+    
+    .action_header .search_form input::placeholder {
+        font-size: 1rem;
+    }
+    
+    .action_header .search_form .search_form_btn {
+        border-top-left-radius: 0!important;
+        border-bottom-left-radius: 0 !important;
+    }
