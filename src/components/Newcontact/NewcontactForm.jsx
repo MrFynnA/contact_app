@@ -7,10 +7,11 @@ import {createPortal} from 'react-dom'
 import { useDispatch } from 'react-redux'
 import { modalActions } from '../../store/slices/modalSlice'
 import { useForm } from 'react-hook-form'
+import { contactActions } from '../../store/slices/contactSlice'
 
 const Newcontact = () => {
   const dispatch=useDispatch()
-  const {register,handleSubmit}=useForm()
+  const {register,handleSubmit,reset}=useForm()
   return (
     <>
     {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeContactModal())}/>,document.getElementById('backdrop'))}
@@ -19,7 +20,15 @@ const Newcontact = () => {
       <h3 className='form_title'>New Contact</h3>
       <div className='close_btn' onClick={()=>dispatch(modalActions.closeContactModal())}>⨉</div>
         <form className='form' onSubmit={handleSubmit((data)=>{
-                        console.log(data)
+                       const contactDetails={
+                        id:Math.random(),
+                        name:data.name,
+                        phone: data.number,
+                        email:data.email
+                       }
+                       dispatch(contactActions.addContact(contactDetails))
+                       reset()
+                       dispatch(modalActions.closeContactModal())
         })}>
           <div className='form_field'>
           <label>Name</label>
