@@ -9,11 +9,17 @@ const Contacts = () => {
 
   const dispatch=useDispatch()
   const contacts=useSelector(state=>state.contactsItems.contacts)
+  const searchValue=useSelector(state=>state.search.searchTerm)
+  console.log(searchValue)
 
    useEffect(()=>{
              const getDataRequest=async()=>{
               try {
-                const url='http://localhost:8080/contacts'
+                let url='http://localhost:8080/contacts/'
+                if(searchValue){
+               url+=`?_&q=${searchValue}`
+                }
+          
                 const res= await fetch(url) 
                 if(!res.ok){
                   throw new Error('could not retrieve data from resource')
@@ -26,7 +32,7 @@ const Contacts = () => {
              }
 
              getDataRequest()
-   },[dispatch])
+   },[dispatch,searchValue])
 
   return (
     <div className='contact_list'>
