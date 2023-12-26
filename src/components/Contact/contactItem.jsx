@@ -4,6 +4,7 @@ import PersonIcon from '../../assets/icons/person_icon'
 import TrashIcon from '../../assets/icons/trash_icon'
 import { useDispatch } from 'react-redux'
 import { contactActions } from '../../store/slices/contactSlice'
+import { modalActions } from '../../store/slices/modalSlice'
 
 const ContactItem = (props) => {
   const dispatch=useDispatch()
@@ -26,7 +27,7 @@ const ContactItem = (props) => {
     }
   return (
     <div className='contact_item'>
-     <div className='contact'><PersonIcon/><h4>{finalName}</h4><div className='contact_actions'><Button>view details</Button><Button className='contact_actions_trash' onClick={deleteRequest}><TrashIcon pathClassname={'trash_icon_path'}/></Button></div></div>
+     <div className='contact'><PersonIcon/><h4>{finalName}</h4><div className='contact_actions'><Button onClick={()=>dispatch(modalActions.setDetailModalActive())}>view details</Button><Button className='contact_actions_trash' onClick={deleteRequest}><TrashIcon pathClassname={'trash_icon_path'}/></Button></div></div>
     </div>
   )
 }

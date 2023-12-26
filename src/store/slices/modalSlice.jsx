@@ -2,7 +2,8 @@ import { createSlice} from "@reduxjs/toolkit";
 
 const initialState={
     contactModalActive:false,
-    contactDetailModalActive:false
+    contactDetailModalActive:false,
+    deletModalActive:false
 }
 const modalSlice=createSlice({
      name:'modal',
@@ -19,6 +20,12 @@ const modalSlice=createSlice({
         },
         closeDetailModal(state){
             state.contactDetailModalActive=false
+        },
+        setDeleteModalActive(state){
+            state.deletModalActive=true
+        },
+        closeDeleteModal(state){
+            state.deletModalActive=false
         }
      }
 })

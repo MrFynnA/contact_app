@@ -23,7 +23,7 @@
                 width: 100%;
                 max-width: 1280px;
                 margin: 0 auto;
-                padding: 2rem;
+                padding: 1rem;
                 text-align: center;
             }
             
@@ -89,10 +89,10 @@
                 top: 50%;
                 transform: translate(-50%, -50%);
                 z-index: 100;
-                animation: fadeInDown 0.3s ease-in-out;
+                animation: fadeIn 0.3s ease-in-out;
             }
             
-            @keyframes fadeInDown {
+            @keyframes fadeIn {
                 from {
                     opacity: 0;
                 }
