@@ -9,9 +9,9 @@ const Contacts = () => {
 
   const dispatch=useDispatch()
   const contacts=useSelector(state=>state.contactsItems.contacts)
-  const contact=useMemo(()=>(contacts),[contacts])
+
    useEffect(()=>{
-             const addRequest=async()=>{
+             const getDataRequest=async()=>{
               try {
                 const url='http://localhost:8080/contacts'
                 const res= await fetch(url) 
@@ -25,8 +25,8 @@ const Contacts = () => {
               }
              }
 
-             addRequest()
-   },[contact,dispatch])
+             getDataRequest()
+   },[dispatch])
 
   return (
     <div className='contact_list'>
