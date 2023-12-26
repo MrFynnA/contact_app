@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>                        
-<div>
+<div className='main'>
   <div>contact application</div>
   <Contacts/>
 </div>
