@@ -3,7 +3,7 @@ import ContactItem from './contactItem'
 
 const Contacts = () => {
   return (
-    <div>
+    <div className='contact_list'>
        {[1,1,1,1,1].map(items=><ContactItem/>) }
     </div>
   )
