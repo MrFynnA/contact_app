@@ -1,0 +1,20 @@
+.button {
+    border-radius: 0.2rem;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: inherit;
+    background-color: #0055ff;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    outline: none;
+    border: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.button:hover {
+    border-color: #2029c4;
+    background-color: #2029c4;
+    transition: 0.4s;
+}
