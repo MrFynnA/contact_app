@@ -6,9 +6,11 @@ import { Backdrop } from '../../ui_components/Backdrop/Backdrop'
 import {createPortal} from 'react-dom'
 import { useDispatch } from 'react-redux'
 import { modalActions } from '../../store/slices/modalSlice'
+import { useForm } from 'react-hook-form'
 
 const Newcontact = () => {
   const dispatch=useDispatch()
+  const {register,handleSubmit}=useForm()
   return (
     <>
     {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeContactModal())}/>,document.getElementById('backdrop'))}
@@ -16,18 +18,20 @@ const Newcontact = () => {
     {createPortal( <div className='contact_form'>
       <h3 className='form_title'>New Contact</h3>
       <div className='close_btn' onClick={()=>dispatch(modalActions.closeContactModal())}>⨉</div>
-        <form className='form' onSubmit={''}>
+        <form className='form' onSubmit={handleSubmit((data)=>{
+                        console.log(data)
+        })}>
           <div className='form_field'>
           <label>Name</label>
-            <input type='text' placeholder='enter name'></input>
+            <input {...register('name')} type='text' placeholder='enter name'></input>
           </div>
           <div className='form_field'>
           <label> Phone number</label>
-            <input type='number' placeholder='enter mobile #'></input>
+            <input {...register('number')} type='number' placeholder='enter mobile #'></input>
           </div>
           <div className='form_field'>
           <label>Email</label>
-            <input type='email' placeholder='enter email'></input>
+            <input {...register('email')} type='email' placeholder='enter email'></input>
           </div>
           <div className='form_actions'>
         <Button type='submit' width='100%'>Add Contact</Button>
