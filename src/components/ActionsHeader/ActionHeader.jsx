@@ -14,7 +14,7 @@ const ActionHeader = () => {
         <input type='text' placeholder='search contact...'></input>
         <Button className='search_form_btn'>search</Button>
         </form>
-        <Button className='action_header_btn' onClick={()=>dispatch(modalActions.setContactModalActive())}><AddContactIcon/>Add Contact</Button>
+        <Button className='action_header_btn' onClick={()=>dispatch(modalActions.setContactModalActive())}><AddContactIcon/><span className='action_header_btn_text'>Add Contact</span></Button>
     </div>
     <hr/>
     </div>

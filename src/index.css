@@ -89,6 +89,16 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 100;
+        animation: fadeInDown 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     
     .contact_form .form {
@@ -205,4 +215,10 @@
     .action_container .action_header_btn {
         display: flex;
         align-items: end;
+    }
+    
+    @media (max-width:767px) {
+        .action_container .action_header_btn .action_header_btn_text {
+            display: none;
+        }
     }
