@@ -2,11 +2,13 @@
 
 import React from 'react'
 import Button from '../../ui_components/Button/Button'
+import { Backdrop } from '../../ui_components/Backdrop/Backdrop'
 
 const Newcontact = () => {
   return (
+    <>
+    <Backdrop/>
     <div className='contact_form_container'>
-
     <div className='contact_form'>
       <h3 className='form_title'>Contact details</h3>
         <form className='form' onSubmit={''}>
@@ -28,6 +30,7 @@ const Newcontact = () => {
         </form>
     </div>
     </div>
+    </>
   )
 }
 
