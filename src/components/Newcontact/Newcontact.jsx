@@ -9,9 +9,10 @@ const Newcontact = () => {
   return (
     <>
     {createPortal(<Backdrop/>,document.getElementById('backdrop'))}
-    {createPortal(<div className='contact_form_container'>
+    {createPortal(<div id='modal' className='contact_form_container'>
     <div className='contact_form'>
-      <h3 className='form_title'>Contact details</h3>
+      <h3 className='form_title'>New Contact</h3>
+      <div className='close_btn'>⨉</div>
         <form className='form' onSubmit={''}>
           <div className='form_field'>
           <label>Name</label>
