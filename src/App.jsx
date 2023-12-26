@@ -7,6 +7,7 @@ import ContactDetail from './components/contactDetail/contactDetailModal'
 
 function App() {
   const contactFormActive=useSelector(state=>state.modal.contactModalActive)
+  const contactDetailActive=useSelector(state=>state.modal.contactDetailModalActive)
 
 
   return (
@@ -16,7 +17,7 @@ function App() {
   <ActionHeader/>
   <Contacts/>
   {contactFormActive ? <Newcontact/>:""}
-  <ContactDetail/>
+  {contactDetailActive?<ContactDetail/>:""}
 </div>
             </>
   )
