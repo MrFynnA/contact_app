@@ -27,6 +27,25 @@ const Newcontact = () => {
                         email:data.email
                        }
                        dispatch(contactActions.addContact(contactDetails))
+                       const addRequest=async()=>{
+                        try{
+
+                          const url='http://localhost:8080/contacts'
+                          const res= await fetch(url,{
+                           method:'POST',
+                           body:JSON.stringify(contactDetails),
+                           headers:{'content-type':'application/json'}
+  
+                          })
+                          
+                          if(res.ok){
+                               throw new Error('couldnt send data to resource')
+                          }
+                        }catch(error){
+                            console.log(error.message)
+                        }
+                      }
+                      addRequest()
                        reset()
                        dispatch(modalActions.closeContactModal())
         })}>
