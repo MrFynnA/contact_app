@@ -38,7 +38,7 @@ const Newcontact = () => {
   
                           })
                           
-                          if(res.ok){
+                          if(!res.ok){
                                throw new Error('couldnt send data to resource')
                           }
                         }catch(error){

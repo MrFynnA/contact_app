@@ -3,19 +3,30 @@ import ContactItem from './contactItem'
 import { useSelector } from 'react-redux'
 import { useMemo } from 'react'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { contactActions } from '../../store/slices/contactSlice'
 const Contacts = () => {
+
+  const dispatch=useDispatch()
   const contacts=useSelector(state=>state.contactsItems.contacts)
   const contact=useMemo(()=>(contacts),[contacts])
-  //  useEffect(()=>{
-  //            const addRequest=async()=>{
-  //            const url='http://localhost:8080/contacts'
-  //            const res= await fetch(url,{
-  //             method:'POST',
-  //             body:JSON.stringify()
-  //            })
-   
-  //            }
-  //  },[contact])
+   useEffect(()=>{
+             const addRequest=async()=>{
+              try {
+                const url='http://localhost:8080/contacts'
+                const res= await fetch(url) 
+                if(!res.ok){
+                  throw new Error('could not retrieve data from resource')
+                } 
+                const data=await res.json()
+                dispatch(contactActions.replaceContacts(data))
+              } catch (error) {
+                console.log(error.message)
+              }
+             }
+
+             addRequest()
+   },[contact,dispatch])
 
   return (
     <div className='contact_list'>

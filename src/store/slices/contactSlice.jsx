@@ -3,34 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
     contacts:[
-        {
-            id:Math.random(),
-            name:"Fynn",
-            phone: 545411926,
-            email:'afynn09@gmail.com'
-
-        },
-        {
-            id:Math.random(),
-            name:"king",
-            phone: 545411926,
-            email:'afynn09@gmail.com'
-
-        },
-        {
-            id:Math.random(),
-            name:"romeo",
-            phone: 545411926,
-            email:'afynn09@gmail.com'
-
-        },
-        {
-            id:Math.random(),
-            name:"lade",
-            phone: 545411926,
-            email:'afynn09@gmail.com'
-
-        },
 
     ]
 }
@@ -47,6 +19,9 @@ const contactSlice=createSlice({
             state.contacts=state.contacts.filter(citems=>citems.id!==action.payload)
 
         },
+        replaceContacts(state,action){
+            state.contacts=action.payload
+        }
     }
 })
 
