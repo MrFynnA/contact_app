@@ -79,10 +79,11 @@
     }
     /* New contact and form styles */
     
-    .contact_form_container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .contact_form {
+        width: 35%;
+        padding: 4rem;
+        border-radius: 10px;
+        background-color: white;
         position: fixed;
         left: 50%;
         top: 50%;
@@ -90,34 +91,26 @@
         z-index: 100;
     }
     
-    .contact_form_container .contact_form {
-        width: 35%;
-        padding: 4rem;
-        border-radius: 10px;
-        background-color: white;
-        position: relative;
-    }
-    
-    .contact_form_container .contact_form .form {
+    .contact_form .form {
         display: flex;
         flex-direction: column;
         gap: 0.4rem
     }
     
-    .contact_form_container .contact_form .form label {
+    .contact_form .form label {
         display: block;
         position: relative;
         font-weight: 600;
     }
     
-    .contact_form_container .contact_form .form .form_field {
+    .contact_form .form .form_field {
         display: flex;
         flex-direction: column;
         align-items: start;
         width: 100%;
     }
     
-    .contact_form_container .contact_form .form .form_field input {
+    .contact_form .form .form_field input {
         padding: 0.6rem;
         width: 100%;
         border-radius: 0.4rem;
@@ -125,12 +118,12 @@
         outline: none;
     }
     
-    .contact_form_container .contact_form .form .form_field input:focus {
+    .contact_form .form .form_field input:focus {
         border: 1.8px solid #4476ff;
         outline: none;
     }
     
-    .contact_form_container .contact_form .form .form_actions {
+    .contact_form .form .form_actions {
         margin-top: 1rem;
         width: 100%;
     }
@@ -141,22 +134,21 @@
     }
     
     @media (max-width:1024px) {
-        .contact_form_container .contact_form {
+        .contact_form {
             width: 48%;
-            margin: 0 1rem;
         }
     }
     
     @media (max-width:767px) {
-        .contact_form_container .contact_form {
-            width: 100% !important;
+        .contact_form {
+            width: 90% !important;
         }
-        .contact_form_container .contact_form {
+        .contact_form {
             padding: 2rem;
         }
     }
     
-    .contact_form_container .contact_form .close_btn {
+    .contact_form .close_btn {
         position: absolute;
         top: 0;
         right: 0;
@@ -166,7 +158,7 @@
         font-size: 1.2rem;
     }
     
-    .contact_form_container .contact_form .close_btn:hover {
+    .contact_form .close_btn:hover {
         color: red;
     }
     /* action header styles */

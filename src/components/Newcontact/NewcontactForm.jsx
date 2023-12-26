@@ -12,8 +12,8 @@ const Newcontact = () => {
   return (
     <>
     {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeContactModal())}/>,document.getElementById('backdrop'))}
-    {createPortal(<div id='modal' className='contact_form_container'>
-    <div className='contact_form'>
+   <div id='modal'>
+    {createPortal( <div className='contact_form'>
       <h3 className='form_title'>New Contact</h3>
       <div className='close_btn' onClick={()=>dispatch(modalActions.closeContactModal())}>⨉</div>
         <form className='form' onSubmit={''}>
@@ -33,8 +33,8 @@ const Newcontact = () => {
         <Button type='submit' width='100%'>Add Contact</Button>
           </div>
         </form>
-    </div>
     </div>,document.getElementById('modal'))}
+    </div>
     </>
   )
 }
