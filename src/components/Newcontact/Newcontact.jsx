@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import Button from '../../ui_components/Button'
+import Button from '../../ui_components/Button/Button'
 
 const Newcontact = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../ui_components/Button'
+import Button from '../ui_components/Button/Button'
 import PersonIcon from '../assets/icons/person_icon'
 
 const ContactItem = () => {

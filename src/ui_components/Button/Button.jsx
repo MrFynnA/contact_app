@@ -1,5 +1,5 @@
 import React from 'react'
-import '../ui_components/Button.css'
+import '../Button/Button.css'
 
 const Button = (props) => {
 const {className,children,width}=props
