@@ -7,25 +7,19 @@ const Newcontact = () => {
     <div>
         <form>
           <div>
-          <label>
-             Name
-          </label>
-            <input></input>
+          <label>Name</label>
+            <input type='text'></input>
           </div>
           <div>
-          <label>
-             Phone number
-          </label>
-            <input></input>
+          <label> Phone number</label>
+            <input type='number'></input>
           </div>
           <div>
-          <label>
-             Email
-          </label>
-            <input></input>
+          <label>Email</label>
+            <input type='email'></input>
           </div>
         </form>
-        <button>Add Contact</button>
+        <button type='submit'>Add Contact</button>
     </div>
   )
 }
