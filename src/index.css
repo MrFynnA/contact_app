@@ -338,3 +338,62 @@
             .contact_detail .close_btn:hover {
                 color: red;
             }
+            /* delete prompt styles */
+            
+            .delete_prompt {
+                width: 45%;
+                padding: 4rem;
+                border-radius: 10px;
+                background-color: white;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 100;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            
+            @media (max-width:1024px) {
+                .delete_prompt {
+                    width: 50%;
+                }
+            }
+            
+            @media (max-width:767px) {
+                .delete_prompt {
+                    width: 90% !important;
+                    padding: 2rem;
+                }
+            }
+            
+            .delete_prompt .delete_title {
+                text-align: start;
+                margin-bottom: 2rem;
+            }
+            
+            .delete_prompt .delete_detail {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 2rem
+            }
+            
+            .delete_prompt .delete_detail .delete_actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem
+            }
+            
+            .delete_prompt .delete_detail .delete_actions .delete_Btn {
+                background-color: rgb(250, 79, 79);
+            }
+            
+            .delete_prompt .delete_detail .delete_actions .delete_Btn:hover {
+                background-color: rgb(165, 38, 38);
+            }
+            
+            .delete_prompt .delete_detail h4 {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
