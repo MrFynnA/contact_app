@@ -4,7 +4,7 @@ import ContactItem from './contactItem'
 const Contacts = () => {
   return (
     <div>
-        <ContactItem/>
+       {[1,1,1,1,1].map(items=><ContactItem/>) }
     </div>
   )
 }
