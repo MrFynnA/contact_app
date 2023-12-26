@@ -30,7 +30,7 @@ const Contacts = () => {
 
   return (
     <div className='contact_list'>
-       {contacts.map(items=><ContactItem key={items.id} name={items.name} id={items.id}/>) }
+       {contacts.length>0 ? contacts.map(items=><ContactItem key={items.id} name={items.name} id={items.id}/>):<div><h4>No Contacts Available.</h4></div> }
     </div>
   )
 }

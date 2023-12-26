@@ -1,22 +1,3 @@
 {
-  "contacts": [
-    {
-      "id": 0.19685781459510276,
-      "name": "big chaq",
-      "phone": "034443422",
-      "email": "bigch@gmail.com"
-    },
-    {
-      "id": 0.9728837009736713,
-      "name": "Nana Fynn Arthur",
-      "phone": "0343232232",
-      "email": "fank@gmail.com"
-    },
-    {
-      "id": 0.5256947793505948,
-      "name": "romeo",
-      "phone": "05434343",
-      "email": "dans@gmail.com"
-    }
-  ]
+  "contacts": []
 }
