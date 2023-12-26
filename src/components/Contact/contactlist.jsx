@@ -6,7 +6,7 @@ const Contacts = () => {
   const contacts=useSelector(state=>state.contactsItems.contacts)
   return (
     <div className='contact_list'>
-       {contacts.map(items=><ContactItem key={items.id} name={items.name}/>) }
+       {contacts.map(items=><ContactItem key={items.id} name={items.name} id={items.id}/>) }
     </div>
   )
 }
