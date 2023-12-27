@@ -23,6 +23,10 @@ const ContactDetail = () => {
             <div><PhoneIcon/><span className='contact_detail_items_title'>Number:</span><span>{'0545411925'}</span></div>
             <div><EmailIcon/><span className='contact_detail_items_title'>Email:</span><span>{'Fynn@gmail.com'}</span></div>
          </div>
+         <div className='Edit_btn' onClick={()=>{
+            dispatch(modalActions.closeDetailModal())
+            dispatch(modalActions.setEditModalActive())
+         }}>Edit</div>
     </div>,document.getElementById('modal'))}
     </div>
     </>

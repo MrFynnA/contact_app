@@ -9,16 +9,16 @@ import { modalActions } from '../../store/slices/modalSlice'
 import { useForm } from 'react-hook-form'
 import { contactActions } from '../../store/slices/contactSlice'
 
-const Newcontact = () => {
+const Editcontact = () => {
   const dispatch=useDispatch()
   const {register,handleSubmit,reset}=useForm()
   return (
     <>
-    {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeContactModal())}/>,document.getElementById('backdrop'))}
+    {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeEditModal())}/>,document.getElementById('backdrop'))}
    <div id='modal'>
     {createPortal( <div className='contact_form'>
       <h3 className='form_title'>Edit Contact</h3>
-      <div className='close_btn' onClick={()=>dispatch(modalActions.closeContactModal())}>⨉</div>
+      <div className='close_btn' onClick={()=>dispatch(modalActions.closeEditModal())}>⨉</div>
         <form className='form' onSubmit={handleSubmit((data)=>{
                        const contactDetails={
                         id:Math.random(),
@@ -71,4 +71,4 @@ const Newcontact = () => {
   )
 }
 
-export default Newcontact
+export default Editcontact

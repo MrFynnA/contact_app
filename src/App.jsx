@@ -5,11 +5,13 @@ import ActionHeader from './components/ActionsHeader/ActionHeader'
 import { useSelector } from 'react-redux'
 import ContactDetail from './components/contactDetail/contactDetailModal'
 import DeletPromptModal from './components/DeletPrompt/DeletePromptModal'
+import Editcontact from './components/EditContact/EditContactModal'
 
 function App() {
   const contactFormActive=useSelector(state=>state.modal.contactModalActive)
   const contactDetailActive=useSelector(state=>state.modal.contactDetailModalActive)
   const deletModalActive=useSelector(state=>state.modal.deletModalActive)
+  const EditModalActive=useSelector(state=>state.modal.EditModalActive)
 
 
   return (
@@ -21,6 +23,7 @@ function App() {
   {contactFormActive && <Newcontact/>}
   {contactDetailActive&& <ContactDetail/>}
   {deletModalActive && <DeletPromptModal/>}
+  {EditModalActive && <Editcontact/>}
 </div>
             </>
   )

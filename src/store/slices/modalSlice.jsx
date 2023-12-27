@@ -4,7 +4,8 @@ const initialState={
     contactModalActive:false,
     contactDetailModalActive:false,
     deletModalActive:false,
-    deleteContact:false
+    deleteContact:false,
+    EditModalActive:false
 }
 const modalSlice=createSlice({
      name:'modal',
@@ -30,7 +31,14 @@ const modalSlice=createSlice({
         },
         setDelete(state){
             state.deleteContact=true
-        }
+        },
+
+        closeEditModal(state){
+            state.EditModalActive=false
+        },
+        setEditModalActive(state){
+            state.EditModalActive=true
+        },
      }
 })
 
