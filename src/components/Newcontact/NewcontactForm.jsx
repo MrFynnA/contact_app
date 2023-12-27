@@ -11,7 +11,8 @@ import { contactActions } from '../../store/slices/contactSlice'
 
 const Newcontact = () => {
   const dispatch=useDispatch()
-  const {register,handleSubmit,reset}=useForm()
+  const {register,handleSubmit,reset,formState}=useForm()
+  const{errors}=formState
   return (
     <>
     {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeContactModal())}/>,document.getElementById('backdrop'))}
@@ -51,15 +52,27 @@ const Newcontact = () => {
         })}>
           <div className='form_field'>
           <label>Name</label>
-            <input {...register('name')} type='text' placeholder='enter name'></input>
+            <input {...register('name',{required:true,minLength:{
+              value:3,
+              message:'Please enter a valid name'
+            }})} type='text' placeholder='enter name'></input>
+            {errors && errors.name && <p className='error_title'>{errors.name.message}</p>}
           </div>
           <div className='form_field'>
           <label> Phone number</label>
-            <input {...register('number')} type='number' placeholder='enter mobile #'></input>
+            <input {...register('number',{required:true,minLength:{
+              value:10,
+              message:'Please enter a valid number'
+            }})} type='number' placeholder='enter mobile #'></input>
+            {errors && errors.number && <p className='error_title'>{errors.number.message}</p>}
           </div>
           <div className='form_field'>
           <label>Email</label>
-            <input {...register('email')} type='email' placeholder='enter email'></input>
+            <input {...register('email',{required:true,minLength:{
+              value:10,
+              message:'Please enter a valid email'
+            }})} type='email' placeholder='enter email'></input>
+            {errors && errors.email && <p className='error_title'>{errors.email.message}</p>}
           </div>
           <div className='form_actions'>
         <Button type='submit' width='100%'>Add Contact</Button>

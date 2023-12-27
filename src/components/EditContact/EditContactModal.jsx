@@ -12,7 +12,7 @@ import { contactActions } from '../../store/slices/contactSlice'
 const Editcontact = () => {
   const dispatch=useDispatch()
   const contactDetail=useSelector(state=>state.contactsItems.contactDetail)
-  const {register,handleSubmit,reset}=useForm()
+  const {register,handleSubmit,reset,formState:{errors}}=useForm()
   return (
     <>
     {createPortal(<Backdrop onClick={()=>dispatch(modalActions.closeEditModal())}/>,document.getElementById('backdrop'))}
@@ -52,15 +52,27 @@ const Editcontact = () => {
         })}>
           <div className='form_field'>
           <label>Name</label>
-            <input {...register('name')} type='text' placeholder='enter name' defaultValue={contactDetail.name}></input>
+            <input {...register('name',{required:true,minLength:{
+              value:3,
+              message:'Please enter a valid name'
+            }})} type='text' placeholder='enter name' defaultValue={contactDetail.name}></input>
+            {errors && errors.name && <p className='error_title'>{errors.name.message}</p>}
           </div>
           <div className='form_field'>
           <label> Phone number</label>
-            <input {...register('number')} type='number' placeholder='enter mobile #' defaultValue={contactDetail.phone}></input>
+            <input {...register('number',{required:true,minLength:{
+              value:10,
+              message:'Please enter a valid number'
+            }})} type='number' placeholder='enter mobile #' defaultValue={contactDetail.phone}></input>
+            {errors && errors.number && <p className='error_title'>{errors.number.message}</p>}
           </div>
           <div className='form_field'>
           <label>Email</label>
-            <input {...register('email')} type='email' placeholder='enter email' defaultValue={contactDetail.email}></input>
+            <input {...register('email',{required:true,minLength:{
+              value:10,
+              message:'Please enter a valid email'
+            }})} type='email' placeholder='enter email' defaultValue={contactDetail.email}></input>
+            {errors && errors.email && <p className='error_title'>{errors.number.email}</p>}
           </div>
           <div className='form_actions'>
         <Button type='submit' width='100%'>Save Contact</Button>

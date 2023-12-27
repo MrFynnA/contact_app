@@ -113,6 +113,11 @@
                 font-weight: 600;
             }
             
+            .contact_form .form .form_field .error_title {
+                font-size: 14px;
+                color: red;
+            }
+            
             .contact_form .form .form_field {
                 display: flex;
                 flex-direction: column;
@@ -408,4 +413,10 @@
                 cursor: pointer;
                 font-size: 1.2rem;
                 display: flex;
+            }
+            
+            @media (max-width:767px) {
+                .contact_detail .Edit_btn {
+                    bottom: 1rem !important;
+                }
             }

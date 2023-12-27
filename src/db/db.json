@@ -1,16 +1,3 @@
 {
-  "contacts": [
-    {
-      "id": 0.7529026377754651,
-      "name": "Randy",
-      "phone": "23",
-      "email": "afynn09@gmail.com"
-    },
-    {
-      "id": 0.1068975025991874,
-      "name": "jumps",
-      "phone": "03245432",
-      "email": "dam@gmail.com"
-    }
-  ]
+  "contacts": []
 }
