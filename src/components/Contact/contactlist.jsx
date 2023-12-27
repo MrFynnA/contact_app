@@ -10,7 +10,7 @@ const Contacts = () => {
   const dispatch=useDispatch()
   const contacts=useSelector(state=>state.contactsItems.contacts)
   const searchValue=useSelector(state=>state.search.searchTerm)
-  console.log(searchValue)
+  // console.log(searchValue)
 
    useEffect(()=>{
              const getDataRequest=async()=>{

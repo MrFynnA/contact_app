@@ -8,6 +8,8 @@ import { modalActions } from '../../store/slices/modalSlice'
 import PersonIcon from '../../assets/icons/person_icon'
 import EmailIcon from '../../assets/icons/email_icon'
 import PhoneIcon from '../../assets/icons/phone_icon'
+import EditContactIcon from '../../assets/icons/EditContact_icon'
+
 
 const ContactDetail = () => {
     const dispatch =useDispatch()
@@ -26,7 +28,7 @@ const ContactDetail = () => {
          <div className='Edit_btn' onClick={()=>{
             dispatch(modalActions.closeDetailModal())
             dispatch(modalActions.setEditModalActive())
-         }}>Edit</div>
+         }}><EditContactIcon/>Edit</div>
     </div>,document.getElementById('modal'))}
     </div>
     </>

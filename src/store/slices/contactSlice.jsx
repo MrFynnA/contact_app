@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     contacts:[
 
-    ]
+    ],
+    contactDetail:{}
 }
 
 const contactSlice=createSlice({
@@ -21,6 +22,9 @@ const contactSlice=createSlice({
         },
         replaceContacts(state,action){
             state.contacts=action.payload
+        },
+        setContactDetail(state,action){
+            state.contactDetail=action.payload
         }
     }
 })
