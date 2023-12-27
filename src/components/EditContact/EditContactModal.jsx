@@ -4,13 +4,14 @@ import React from 'react'
 import Button from '../../ui_components/Button/Button'
 import { Backdrop } from '../../ui_components/Backdrop/Backdrop'
 import {createPortal} from 'react-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { modalActions } from '../../store/slices/modalSlice'
 import { useForm } from 'react-hook-form'
 import { contactActions } from '../../store/slices/contactSlice'
 
 const Editcontact = () => {
   const dispatch=useDispatch()
+  const contactDetail=useSelector(state=>state.contactsItems.contactDetail)
   const {register,handleSubmit,reset}=useForm()
   return (
     <>
@@ -51,15 +52,15 @@ const Editcontact = () => {
         })}>
           <div className='form_field'>
           <label>Name</label>
-            <input {...register('name')} type='text' placeholder='enter name' defaultValue={''}></input>
+            <input {...register('name')} type='text' placeholder='enter name' defaultValue={contactDetail.name}></input>
           </div>
           <div className='form_field'>
           <label> Phone number</label>
-            <input {...register('number')} type='number' placeholder='enter mobile #' defaultValue={''}></input>
+            <input {...register('number')} type='number' placeholder='enter mobile #' defaultValue={contactDetail.phone}></input>
           </div>
           <div className='form_field'>
           <label>Email</label>
-            <input {...register('email')} type='email' placeholder='enter email' defaultValue={''}></input>
+            <input {...register('email')} type='email' placeholder='enter email' defaultValue={contactDetail.email}></input>
           </div>
           <div className='form_actions'>
         <Button type='submit' width='100%'>Save Contact</Button>
