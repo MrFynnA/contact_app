@@ -64,6 +64,9 @@ const Newcontact = () => {
             <input {...register('number',{required:true,minLength:{
               value:10,
               message:'Please enter a valid number'
+            },maxLength:{
+              value:10,
+              message:'Please enter a valid number'
             }})} type='number' placeholder='enter mobile #'></input>
             {errors && errors.number && <p className='error_title'>{errors.number.message}</p>}
           </div>

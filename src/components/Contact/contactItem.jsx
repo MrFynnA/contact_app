@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Button from '../../ui_components/Button/Button'
 import PersonIcon from '../../assets/icons/person_icon'
 import TrashIcon from '../../assets/icons/trash_icon'
@@ -11,6 +11,7 @@ import { useCallback } from 'react'
 const ContactItem = (props) => {
   const dispatch=useDispatch()
   const deleteContact=useSelector(state=>state.modal.deleteContact)
+  const [error,setError]=useState()
   const contactId=useSelector(state=>state.contactsItems.contactId)
   const{name,id,contactDetails}=props
   const newName=name.split(' ')
@@ -29,7 +30,7 @@ const ContactItem = (props) => {
           throw new Error ('could not delete contact from resource')
         }
       } catch (error) {
-        console.log(error.message)
+        setError(error.message)
       }finally{
           dispatch(modalActions.closeDeleteModal())
       }
