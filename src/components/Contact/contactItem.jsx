@@ -20,7 +20,7 @@ const ContactItem = (props) => {
   
     const deleteRequest=useCallback(async()=>{
       try {
-        const url='http://localhost:8080/contacts/'+id
+        const url=`http://localhost:8080/contacts/${id}`
         const res=await fetch(url, {
           method:"DELETE"
         })
@@ -35,6 +35,7 @@ const ContactItem = (props) => {
     },[id,dispatch])
 
     useEffect(()=>{
+      console.log(id)
       if(deleteContact){
         dispatch(contactActions.deleteContact(id))
         deleteRequest()

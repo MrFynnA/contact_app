@@ -68,10 +68,10 @@ const Newcontact = () => {
           </div>
           <div className='form_field'>
           <label>Email</label>
-            <input {...register('email',{required:true,minLength:{
-              value:10,
-              message:'Please enter a valid email'
-            }})} type='email' placeholder='enter email'></input>
+            <input {...register('email',{required:true,pattern: {
+      value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+      message: 'Please enter a valid email',
+    }})} type='email' placeholder='enter email'></input>
             {errors && errors.email && <p className='error_title'>{errors.email.message}</p>}
           </div>
           <div className='form_actions'>
