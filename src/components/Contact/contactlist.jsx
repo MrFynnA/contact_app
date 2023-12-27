@@ -1,7 +1,5 @@
-import React from 'react'
 import ContactItem from './contactItem'
 import { useSelector } from 'react-redux'
-import { useMemo } from 'react'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { contactActions } from '../../store/slices/contactSlice'
@@ -15,9 +13,9 @@ const Contacts = () => {
    useEffect(()=>{
              const getDataRequest=async()=>{
               try {
-                let url='http://localhost:8080/contacts/'
+                let url='http://localhost:8080/contacts?_sort=id&_order=desc'
                 if(searchValue){
-               url+=`?_&q=${searchValue}`
+               url+=`&q=${searchValue}`
                 }
           
                 const res= await fetch(url) 
@@ -36,7 +34,7 @@ const Contacts = () => {
 
   return (
     <div className='contact_list'>
-       {contacts.length>0 ? contacts.map(items=><ContactItem key={items.id} contactDetails={items} name={items.name} id={items.id}/>):<div><h4>No Contacts Available.</h4></div> }
+       {contacts.length>0 ? contacts.map((items,idx)=><ContactItem key={idx} contactDetails={items} name={items.name} id={items.id}/>):<div><h4>No Contacts Available.</h4></div> }
     </div>
   )
 }

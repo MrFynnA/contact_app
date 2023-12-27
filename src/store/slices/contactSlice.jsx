@@ -5,7 +5,8 @@ const initialState={
     contacts:[
 
     ],
-    contactDetail:{}
+    contactDetail:{},
+    contactId:null
 }
 
 const contactSlice=createSlice({
@@ -19,6 +20,9 @@ const contactSlice=createSlice({
         deleteContact(state,action){
             state.contacts=state.contacts.filter(citems=>citems.id!==action.payload)
 
+        },
+        setId(state,action){
+           state.contactId=action.payload
         },
         replaceContacts(state,action){
             state.contacts=action.payload

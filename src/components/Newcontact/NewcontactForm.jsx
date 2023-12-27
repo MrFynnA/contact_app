@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { modalActions } from '../../store/slices/modalSlice'
 import { useForm } from 'react-hook-form'
 import { contactActions } from '../../store/slices/contactSlice'
+import { v4 as uid } from 'uuid'
 
 const Newcontact = () => {
   const dispatch=useDispatch()
@@ -22,7 +23,7 @@ const Newcontact = () => {
       <div className='close_btn' onClick={()=>dispatch(modalActions.closeContactModal())}>⨉</div>
         <form className='form' onSubmit={handleSubmit((data)=>{
                        const contactDetails={
-                        id:Math.random(),
+                        contact_id:uid(),
                         name:data.name,
                         phone: data.number,
                         email:data.email

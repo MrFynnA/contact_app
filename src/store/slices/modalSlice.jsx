@@ -32,6 +32,9 @@ const modalSlice=createSlice({
         setDelete(state){
             state.deleteContact=true
         },
+        setDeleteToFalse(state){
+            state.deleteContact=false
+        },
 
         closeEditModal(state){
             state.EditModalActive=false
