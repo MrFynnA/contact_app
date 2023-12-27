@@ -11,10 +11,13 @@ import { useCallback } from 'react'
 const ContactItem = (props) => {
   const dispatch=useDispatch()
   const deleteContact=useSelector(state=>state.modal.deleteContact)
-  const{name,id}=props
+  const{name,id,contactDetails}=props
   const newName=name.split(' ')
     const finalName=`${newName[0]} ${newName[1] ? newName[1]:""}`
-
+    const contactDetail={
+      ...contactDetails
+    }
+  
     const deleteRequest=useCallback(async()=>{
       try {
         const url='http://localhost:8080/contacts/'+id
@@ -40,7 +43,10 @@ const ContactItem = (props) => {
     },[deleteContact,deleteRequest,dispatch,id])
   return (
     <div className='contact_item'>
-     <div className='contact'><PersonIcon/><h4>{finalName}</h4><div className='contact_actions'><Button onClick={()=>dispatch(modalActions.setDetailModalActive())}>view details</Button><Button className='contact_actions_trash' onClick={()=>dispatch(modalActions.setDeleteModalActive())}><TrashIcon pathClassname={'trash_icon_path'}/></Button></div></div>
+     <div className='contact'><PersonIcon/><h4>{finalName}</h4><div className='contact_actions'><Button onClick={()=>{
+      dispatch(contactActions.setContactDetail(contactDetail))
+      dispatch(modalActions.setDetailModalActive())
+      }}>view details</Button><Button className='contact_actions_trash' onClick={()=>dispatch(modalActions.setDeleteModalActive())}><TrashIcon pathClassname={'trash_icon_path'}/></Button></div></div>
     </div>
   )
 }
