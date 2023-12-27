@@ -22,18 +22,18 @@ const Editcontact = () => {
       <div className='close_btn' onClick={()=>dispatch(modalActions.closeEditModal())}>⨉</div>
         <form className='form' onSubmit={handleSubmit((data)=>{
                        const contactDetails={
-                        id:Math.random(),
+                        id:contactDetail.id,
                         name:data.name,
                         phone: data.number,
                         email:data.email
                        }
-                       dispatch(contactActions.addContact(contactDetails))
+                       dispatch(contactActions.updateContact(contactDetails))
                        const addRequest=async()=>{
                         try{
 
-                          const url='http://localhost:8080/contacts'
+                          const url='http://localhost:8080/contacts/'+contactDetail.id
                           const res= await fetch(url,{
-                           method:'POST',
+                           method:'PATCH',
                            body:JSON.stringify(contactDetails),
                            headers:{'content-type':'application/json'}
   
@@ -48,7 +48,7 @@ const Editcontact = () => {
                       }
                       addRequest()
                        reset()
-                       dispatch(modalActions.closeContactModal())
+                       dispatch(modalActions.closeEditModal())
         })}>
           <div className='form_field'>
           <label>Name</label>

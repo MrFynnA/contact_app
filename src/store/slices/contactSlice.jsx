@@ -25,6 +25,15 @@ const contactSlice=createSlice({
         },
         setContactDetail(state,action){
             state.contactDetail=action.payload
+        },
+        updateContact(state,action){
+            const existingContact=state.contacts.find(items=>items.id===action.payload.id)
+            if(existingContact){
+                existingContact.name=action.payload.name
+                existingContact.phone=action.payload.phone,
+                existingContact.email=action.payload.email
+            }
+            // state.contacts
         }
     }
 })
