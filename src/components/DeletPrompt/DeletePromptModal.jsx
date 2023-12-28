@@ -8,7 +8,8 @@ import { modalActions } from '../../store/slices/modalSlice'
 import Button from '../../ui_components/Button/Button'
 
 
-const DeletPromptModal = () => {
+const DeletPromptModal = (props) => {
+  const{onClick}=props
     const dispatch =useDispatch()
   return (
     <>
@@ -18,7 +19,7 @@ const DeletPromptModal = () => {
     <h3 className='delete_title'>Delete Contact</h3>
          <div className='delete_detail'>
             <div><h4>Are you sure you want to delete this contact?</h4></div>
-            <div className='delete_actions'><Button className='delete_Btn' onClick={()=>dispatch(modalActions.setDelete())}>DELETE</Button><Button onClick={()=>dispatch(modalActions.closeDeleteModal())}>CANCEL</Button></div>
+            <div className='delete_actions'><Button className='delete_Btn' onClick={onClick}>DELETE</Button><Button onClick={()=>dispatch(modalActions.closeDeleteModal())}>CANCEL</Button></div>
          </div>
     </div>,document.getElementById('modal'))}
     </div>
